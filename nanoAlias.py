@@ -42,11 +42,18 @@ def update():
 
 @app.route('/ccap/address/<username>/<coin>', methods=['GET'])
 def address(username, coin):
-    print(username)
     try:
         # cAsE iNSnSeTivE username and coin.
-        coin_instance = Coin.select().join(User).where(User.username == username.lower() and Coin.coin == coin).get()
-        return jsonify(address=coin_instance.address)
+        user = User.get(User.username == username.lower())
+        address = ""
+        for coin_instance in user.coins:
+            if coin_instance.coin == coin.lower():
+                address = coin_instance.address
+                break
+        if address:
+            return jsonify(address=address)
+        else:
+            abort(404)
     except PeeweeException:
         abort(404)
 
