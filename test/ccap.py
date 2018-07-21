@@ -29,7 +29,7 @@ if __name__ == "__main__":
     password = "qwerty"
     jwt = get_jwt(username, password)
     print(jwt)
-    coin = "nan"
+    coin = "nano"
     address = "xrb_17h1imjes17gr8fantofykyztfe7g3ag1yqgp1qtjdhs3dfnwds5bzzp6u81"
     up_co = update_coin(coin, address, jwt["jwt"])
     print(up_co)
