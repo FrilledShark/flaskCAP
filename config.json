@@ -1,6 +1,7 @@
 {
-  "secret": "PyO/SMCiIEi7QOgvyvRFYF2NZWgKIYEzKFCRMhH9yVccrHQrKcnW58EFsgXIHRbsz7q/z170x29Ks6+k",
-  "database"    : {
+  "domain_control": false,
+  "secret"        : "PyO/SMCiIEi7QOgvyvRFYF2NZWgKIYEzKFCRMhH9yVccrHQrKcnW58EFsgXIHRbsz7q/z170x29Ks6+k",
+  "database"      : {
 	"mysql": false,
 	"host" : "",
 	"port" : "",
