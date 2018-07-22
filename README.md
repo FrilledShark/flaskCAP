@@ -1,4 +1,4 @@
-# NanoAlias
+# flaskCCAP
 [CCAP](https://github.com/lane-c-wagner/ccap) implementation in Python Flask.
 
 Note: flaskCCAP breaks the CCAP specs by allowing updates with POST /ccap/address for all aliases. Discussed in: https://github.com/lane-c-wagner/ccap/issues/2. This breaks the Nano specific protocol.
