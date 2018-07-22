@@ -53,6 +53,6 @@ Gets a new JWT for given domain. Lasts 5 minutes
 | Parameters | Description | Required | Sample Value |
 | ---------- | ----------- | -------- | ------------ |
 | domain | The domain | Yes | "excample.com"
-| secret | The secret of the domain | Yes | "|]?|I[>}$v#\#YYag2SavM_jpLOIApYTi#<1"
+| secret | The secret of the domain | Yes | "0ZWVAhwGBxvRtTjFG1mPCuRCCFSdFLCo6c3xLz6ZYfKLuivO"
 
 
