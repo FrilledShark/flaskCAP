@@ -1,7 +1,7 @@
 # NanoAlias
-CCAP implementation in Python Flask.
+[CCAP](https://github.com/lane-c-wagner/ccap) implementation in Python Flask.
 
-https://github.com/lane-c-wagner/ccap
+Note: This breaks the CCAP specs by allowing updates with POST /ccap/address for all aliases. Discussed in: https://github.com/lane-c-wagner/ccap/issues/2. This breaks the Nano specefic protocol.
 
 # Setting up
 Install requirements from requirement.txt. If the test folder wants to be used, install "requests" as well.
