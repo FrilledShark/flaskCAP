@@ -27,4 +27,4 @@ Gunicorn + supervisor and nginx is an example setup. For more inspiration see Fl
 # Domain Control
 It is possible to enable domain control in the config. This allows the server to handle multiple different domains at the same time. 
 
-Note: The server does not handle forwarding the different domain requests, which has to be done seperately and the server doesn't handle ssl certificates for other domains.
+Note: The server does not handle forwarding the different domain requests, which has to be done seperately and the server doesn't handle ssl certificates for any domains.
