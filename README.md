@@ -20,9 +20,9 @@ Note: It is possbile to use own database if structured like database.py, but the
 
 
 ## Start server
-Install requirements.txt and run the flask app (app_ccap) with your prefered configuration.
+Run the flask app (app_ccap) with your prefered configuration. 
 
-  For inspiration see Flask website: http://flask.pocoo.org/docs/1.0/deploying/
+Gunicorn + supervisor and nginx is an example setup. For more inspiration see Flask website: http://flask.pocoo.org/docs/1.0/deploying/
 
 # Domain Control
 It is possible to enable domain control in the config. This allows the server to handle multiple different domains at the same time. 
