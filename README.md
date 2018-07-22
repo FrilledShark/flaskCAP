@@ -42,7 +42,7 @@ Creates a new user on domain.
 | Parameters | Description | Required | Sample Value |
 | ---------- | ----------- | -------- | ------------ |
 | username | The username to create | Yes | "alice"
-| username | The password of the username | Yes | "taRx64tZ"
+| password | The password of the username | Yes | "taRx64tZ"
 
 ### POST /ccap/private/auth
 
