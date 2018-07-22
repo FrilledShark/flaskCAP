@@ -17,7 +17,7 @@ class BaseModel(Model):
 class Domain(BaseModel):
     domain_name = CharField(unique=True)
     password = CharField()
-    date = DateTimeField()
+    date = DateTimeField(null=True)
 
 
 #

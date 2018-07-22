@@ -1,6 +1,8 @@
 # NanoAlias
 CCAP implementation in Python Flask.
 
+https://github.com/lane-c-wagner/ccap
+
 # Setting up
 Install requirements from requirement.txt. If the test folder wants to be used, install "requests" as well.
 
@@ -28,3 +30,29 @@ Gunicorn + supervisor and nginx is an example setup. For more inspiration see Fl
 It is possible to enable domain control in the config. This allows the server to handle multiple different domains at the same time. 
 
 Note: The server does not handle forwarding the different domain requests, which has to be done seperately and the server doesn't handle ssl certificates for any domains.
+
+## Private Endpoints:
+
+### POST /ccap/private/user
+
+Authorization: Bearer {jwt}
+
+Creates a new user on domain.
+
+| Parameters | Description | Required | Sample Value |
+| ---------- | ----------- | -------- | ------------ |
+| username | The username to create | Yes | "alice"
+| username | The password of the username | Yes | "taRx64tZ"
+
+### POST /ccap/private/auth
+
+No Authorization (Public method)
+
+Gets a new JWT for given domain. Lasts 5 minutes
+
+| Parameters | Description | Required | Sample Value |
+| ---------- | ----------- | -------- | ------------ |
+| domain | The domain | Yes | "excample.com"
+| secret | The secret of the domain | Yes | "|]?|I[>}$v#\#YYag2SavM_jpLOIApYTi#<1"
+
+
