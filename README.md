@@ -29,19 +29,14 @@ Run test/domain.py and input the domain name. Write down the secret key.
 
 In the test folder run user.py. Input username and password.
 
-Note: It is possbile to use own database if structured like database.py, but the password has to hashed with argon2 to avoid plaintext password storage.
+Note: It is possible to use own database if structured like database.py, but the password has to hashed with argon2 to avoid plaintext password storage.
 
 
 ## Start server
 
-Run the flask app with your prefered configuration.
+Run the flask app with your preferred configuration.
 
 Gunicorn + supervisor and nginx is an example setup. For more inspiration see Flask website: http://flask.pocoo.org/docs/1.0/deploying/
-
-# Domain Control
-It is possible to enable domain control in the config. This allows the server to handle multiple different domains at the same time. 
-
-Note: The server does not handle forwarding the different domain requests, which has to be done seperately and the server doesn't handle ssl certificates for any domains.
 
 ## Private Endpoints:
 
