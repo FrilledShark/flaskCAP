@@ -52,7 +52,6 @@ Creates a new user on domain.
 | ---------- | ----------- | -------- | ------------ |
 | username | The username to create | Yes | "alice"
 | password | The password of the username | Yes | "taRx64tZ"
-| secret | The secret of the domain | Yes | "0ZWVAhwGBxvRtTjFG1mPCuRCCFSdFLCo6c3xLz6ZYfKLuivO"
 
 
 
