@@ -26,12 +26,27 @@ def update_coin(coin, address, jwt):
         return rqst.status_code, rqst.content
 
 
+def create_user(secret, username, password):
+    url = f'{main_url}/ccap/private/user'
+
+    rqst = requests.post(url, json=dict(username=username, password=password), headers=dict(bearer=secret))
+    try:
+        return rqst.json()
+    except json.JSONDecodeError:
+        return rqst.status_code, rqst.content
+
+
 if __name__ == "__main__":
     username = "username"
     password = "qwerty"
-    jwt = get_jwt(username, password)
-    print(jwt)
-    coin = "nano"
-    address = "xrb_17h1imjes17gr8fantofykyztfe7g3ag1yqgp1qtjdhs3dfnwds5bzzp6u81"
-    up_co = update_coin(coin, address, jwt["jwt"])
-    print(up_co)
+
+    secret = "K7d2QdjJdhb4LZgkCCeg9G+JMoKInIh0w2Xn+RedYIBtaVRL"
+
+    print(create_user(secret, username, password))
+
+    # jwt = get_jwt(username, password)
+    # print(jwt)
+    # coin = "nano"
+    # address = "xrb_17h1imjes17gr8fantofykyztfe7g3ag1yqgp1qtjdhs3dfnwds5bzzp6u81"
+    # up_co = update_coin(coin, address, jwt["jwt"])
+    # print(up_co)

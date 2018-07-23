@@ -1,7 +1,9 @@
-from database import Domain, User
-from passlib_context import pwd_context
+from modules.database import Domain, User
+from modules.passlib_context import pwd_context
 
 main_url = "127.0.0.1:5000"
+secret = "CkOkSuddW7UikfytdPJ5xUdPiXrseDZi2Sq68i8PJUY7agKl"
+
 
 if __name__ == "__main__":
     username = input("Username: ").lower()

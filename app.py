@@ -3,7 +3,7 @@ import os
 
 from flask import Flask, request
 
-from modules.ccap import RESTaddress, RESTauth, RESTupdate, private_auth, private_user
+from modules.ccap import RESTaddress, RESTauth, RESTupdate, private_user
 
 dirname = os.path.dirname(__file__)
 filename = os.path.join(dirname, 'config.json')
@@ -31,11 +31,6 @@ def flask_auth():
 @app.route('/ccap/private/user', methods=['POST'])
 def flask_private_user():
     return private_user(request)
-
-
-@app.route('/ccap/auth/user', methods=['POST'])
-def flask_private_auth():
-    return private_auth(request)
 
 
 if __name__ == "__main__":

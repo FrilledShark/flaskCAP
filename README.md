@@ -44,7 +44,7 @@ Private endpoints are used for creating users and getting auth keys associated w
 
 ### POST /ccap/private/user
 
-Authorization: Bearer {jwt}
+Authorization: bearer {secret}
 
 Creates a new user on domain.
 
@@ -52,16 +52,7 @@ Creates a new user on domain.
 | ---------- | ----------- | -------- | ------------ |
 | username | The username to create | Yes | "alice"
 | password | The password of the username | Yes | "taRx64tZ"
-
-### POST /ccap/private/auth
-
-No Authorization (Public method)
-
-Gets a new JWT for given domain. Lasts 5 minutes
-
-| Parameters | Description | Required | Sample Value |
-| ---------- | ----------- | -------- | ------------ |
-| domain | The domain | Yes | "excample.com"
 | secret | The secret of the domain | Yes | "0ZWVAhwGBxvRtTjFG1mPCuRCCFSdFLCo6c3xLz6ZYfKLuivO"
+
 
 

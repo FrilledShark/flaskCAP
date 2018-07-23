@@ -2,8 +2,8 @@ import datetime
 from base64 import b64encode
 from os import urandom
 
-from database import Domain
-from passlib_context import pwd_context
+from modules.database import Domain
+from modules.passlib_context import pwd_context
 
 if __name__ == "__main__":
     domain = input("Domain: ").lower()

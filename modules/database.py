@@ -3,7 +3,7 @@ import os
 from peewee import *
 
 dirname = os.path.dirname(__file__)
-filename = os.path.join(dirname, 'database.db')
+filename = os.path.join(dirname, '../database.db')
 
 db = SqliteDatabase(filename)
 

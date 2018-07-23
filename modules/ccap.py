@@ -10,7 +10,7 @@ from .database import Coin, Domain, User
 from .passlib_context import pwd_context
 
 dirname = os.path.dirname(__file__)
-filename = os.path.join(dirname, 'config.json')
+filename = os.path.join(dirname, '../config.json')
 with open(filename, 'r') as file:
     config = json.load(file)
 
@@ -78,34 +78,16 @@ def RESTauth(request):
 #
 
 def private_user(request):
-    jwt_token = request.headers['bearer']
+    secret = request.headers['bearer']
+    domain_name = request.headers["Host"]
     username = request.json["username"]
     password = request.json["password"]
     try:
-        jwt_decoded = jwt.decode(jwt_token, key=jwt_secret)
-        domain_name = jwt_decoded["u"]
-        dt_jwt = datetime.strptime(jwt_decoded["d"], dt_format)
-        if dt_jwt > datetime.now() - timedelta(minutes=5):
-            domain = Domain.get(Domain.domain == domain_name)
+        domain = Domain.get(Domain.domain == domain_name)
+        if pwd_context.verify(secret, domain.password):
             User.create(username=username, password=pwd_context.hash(password), domain=domain)
             return jsonify(success=True)
         else:
             abort(401)
-    except jwt.InvalidSignatureError:
-        abort(401)
     except IntegrityError:
         abort(409)
-
-
-def private_auth(request):
-    domain = request.json["domain"]
-    secret = request.json['secret']
-    try:
-        domain = Domain.get(Domain.domain == domain)
-        if pwd_context.verify(secret, domain.password):
-            encoded = jwt.encode({'u': domain.domain, 'd': datetime.now().strftime(dt_format)}, key=jwt_secret)
-            return jsonify(jwt=encoded.decode())
-        else:  # Wrong password
-            abort(404)
-    except (PeeweeException, User.DoesNotExist):
-        abort(404)
