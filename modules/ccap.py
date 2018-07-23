@@ -6,8 +6,8 @@ import jwt
 from flask import abort, jsonify
 from peewee import IntegrityError, PeeweeException
 
-from database import Coin, Domain, User
-from passlib_context import pwd_context
+from .database import Coin, Domain, User
+from .passlib_context import pwd_context
 
 dirname = os.path.dirname(__file__)
 filename = os.path.join(dirname, 'config.json')
