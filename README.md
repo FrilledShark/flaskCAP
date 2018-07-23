@@ -1,28 +1,40 @@
-# flaskCCAP
+# flaskCCAP server
+
 [CCAP](https://github.com/lane-c-wagner/ccap) implementation in Python Flask.
 
 Note: flaskCCAP breaks the CCAP specs by allowing updates with POST /ccap/address for all aliases. Discussed in: https://github.com/lane-c-wagner/ccap/issues/2. This breaks the Nano specific protocol.
 
+This server allows multi domain redirection. This means it is possible to redirect domains to one server and letting the server handle the request. To setup the domains, run domain.py and configure tls/ssl certificates and redirect requests to the server with the domain passed in the host header.
+
+
 # Setting up
+
 Install requirements from requirement.txt. If the test folder wants to be used, install "requests" as well.
 
 ## Security
+
 To secure the JWT tokens, a new secret key should be generated and input in config. Can be done by using os.urandom, but not required.
 
 As per CCAP specs, it is also required to setup ssl certificates for the server, which flaskCCAP doesn't do.
 
 ## Create database
+
 The server uses sqlite, but can easily be configured for something else if needed. Run database.py to create the nesseary database and tables.
 
+## Add domain
+
+Run test/domain.py and input the domain name. Write down the secret key.
 
 ## Add user
+
 In the test folder run user.py. Input username and password.
 
 Note: It is possbile to use own database if structured like database.py, but the password has to hashed with argon2 to avoid plaintext password storage.
 
 
 ## Start server
-Run the flask app (app_ccap) with your prefered configuration. 
+
+Run the flask app with your prefered configuration.
 
 Gunicorn + supervisor and nginx is an example setup. For more inspiration see Flask website: http://flask.pocoo.org/docs/1.0/deploying/
 
@@ -32,6 +44,8 @@ It is possible to enable domain control in the config. This allows the server to
 Note: The server does not handle forwarding the different domain requests, which has to be done seperately and the server doesn't handle ssl certificates for any domains.
 
 ## Private Endpoints:
+
+Private endpoints are used for creating users and getting auth keys associated with the domains.
 
 ### POST /ccap/private/user
 

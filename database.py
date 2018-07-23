@@ -15,7 +15,7 @@ class BaseModel(Model):
 
 # Used for domain control
 class Domain(BaseModel):
-    domain_name = CharField(unique=True)
+    domain = CharField(unique=True)
     password = CharField()
     date = DateTimeField(null=True)
 
@@ -25,7 +25,7 @@ class Domain(BaseModel):
 #
 
 class User(BaseModel):
-    domain = ForeignKeyField(Domain, backref="users", null=True)
+    domain = ForeignKeyField(Domain, backref="users")
     username = CharField(unique=True)
     password = CharField()
 

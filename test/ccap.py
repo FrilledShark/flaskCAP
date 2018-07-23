@@ -1,6 +1,8 @@
-import requests, json
+import json
 
-main_url = "http://127.0.0.1:5000"
+import requests
+
+main_url = "http://127.0.0.1:5000"  # Remember to use https
 
 
 def get_jwt(username, password):
