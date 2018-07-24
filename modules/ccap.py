@@ -54,7 +54,7 @@ def RESTaddress(request, username, coin):
             return jsonify(address=address)
         else:
             abort(404)
-    except PeeweeException:
+    except (PeeweeException, User.DoesNotExist):
         abort(404)
 
 
@@ -68,7 +68,7 @@ def RESTauth(request):
             encoded = jwt.encode({'u': username, 'd': datetime.now().strftime(dt_format)}, key=jwt_secret)
             return jsonify(jwt=encoded.decode())
         else:  # Wrong password
-            abort(404)  # Do not tell it is wrong password
+            abort(401)
     except (PeeweeException, User.DoesNotExist):
         abort(404)
 

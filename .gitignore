@@ -108,3 +108,6 @@ venv.bak/
 
 # idea
 .idea
+
+# Database
+database.db
