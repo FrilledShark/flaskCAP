@@ -1,8 +1,8 @@
 # flaskCCAP server
 
-[CCAP](https://github.com/lane-c-wagner/ccap) implementation in Python Flask.
+[openCAP](https://github.com/opencap/protocol) implementation in Python Flask.
 
-Note: flaskCCAP breaks the CCAP specs by allowing updates with POST /ccap/address for all aliases. Discussed in: https://github.com/lane-c-wagner/ccap/issues/2. This breaks the Nano specific protocol.
+Note: flaskCAP breaks the protocol specs by allowing updates with POST /ccap/address for all aliases. Discussed in: https://github.com/opencap/protocol/issues/2. This breaks the Nano specific protocol.
 
 This server allows multi domain redirection. This means it is possible to redirect domains to one server and letting the server handle the request. To setup the domains, run domain.py and configure tls/ssl certificates and redirect requests to the server with the domain passed in the host header.
 
@@ -15,7 +15,7 @@ Install requirements from requirement.txt. If the test folder wants to be used, 
 
 To secure the JWT tokens, a new secret key should be generated and input in config. Can be done by using os.urandom, but not required.
 
-As per CCAP specs, it is also required to setup ssl certificates for the server, which flaskCCAP doesn't do.
+As per openCAP specs, it is also required to setup ssl certificates for the server, which flaskCCAP doesn't do.
 
 ## Create database
 
@@ -42,7 +42,7 @@ Gunicorn + supervisor and nginx is an example setup. For more inspiration see Fl
 
 Private endpoints are used for creating users and getting auth keys associated with the domains.
 
-### POST /ccap/private/user
+### POST /private/user
 
 Authorization: bearer {secret}
 
