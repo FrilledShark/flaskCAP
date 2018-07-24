@@ -1,0 +1,3 @@
+[submodule "restfulCAP"]
+	path = restfulCAP
+	url = https://github.com/FrilledShark/restfulCAP.git

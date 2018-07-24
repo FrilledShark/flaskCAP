@@ -3,7 +3,7 @@ import os
 
 from flask import Flask, request
 
-from modules.ccap import RESTaddress, RESTauth, RESTupdate, private_user
+from restfulCAP.ccap import RESTaddress, RESTauth, RESTupdate, private_user
 
 dirname = os.path.dirname(__file__)
 filename = os.path.join(dirname, 'config.json')
